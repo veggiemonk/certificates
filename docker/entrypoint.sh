@@ -36,10 +36,10 @@ function generate_password () {
 function step_ca_init () {
     local -a setup_args=(
         --name "${DOCKER_STEPCA_INIT_NAME}"
-		--dns "${DOCKER_STEPCA_INIT_DNS_NAMES}"
-		--provisioner "${DOCKER_STEPCA_INIT_PROVISIONER_NAME:-admin}"
-		--password-file "${STEPPATH}/password"
-        --address ":9000"
+        --dns "${DOCKER_STEPCA_INIT_DNS_NAMES}"
+        --provisioner "${DOCKER_STEPCA_INIT_PROVISIONER_NAME:-admin}"
+        --password-file "${STEPPATH}/password"
+        --address "${DOCKER_STEPCA_INIT_ADDRESS:-\":9000\"}"
     )
     if [ -n "${DOCKER_STEPCA_INIT_PASSWORD}" ]; then
         echo "${DOCKER_STEPCA_INIT_PASSWORD}" > "${STEPPATH}/password"
